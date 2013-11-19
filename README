@@ -1,0 +1,19 @@
+Supplies some utilities for creating html documents manually
+
+>>> print h1('test')
+<h1>
+test
+</h1>
+
+>>> print table([tr([td('d1'), td('d2')]), tr()])
+<table>
+<tr>
+<td>
+d1
+</td>
+<td>
+d2
+</td>
+</tr>
+<tr />
+</table>
