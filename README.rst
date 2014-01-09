@@ -1,6 +1,7 @@
 Quicktag 
 ========
-.. image:: https://travis-ci.org/alchemyst/quicktag.png?branch=master   :target: https://travis-ci.org/alchemyst/quicktag
+.. image:: https://travis-ci.org/alchemyst/quicktag.png?branch=master   
+   :target: https://travis-ci.org/alchemyst/quicktag
 
 Supplies some utilities for creating html documents manually
 
