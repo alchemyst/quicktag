@@ -2,12 +2,12 @@
 
 """ Supplies some utilities for creating html documents manually
 
->>> print h1('test')
+>>> print(h1('test'))
 <h1>
 test
 </h1>
 
->>> print table([tr([td('d1'), td('d2')]), tr()])
+>>> print(table([tr([td('d1'), td('d2')]), tr()]))
 <table>
 <tr>
 <td>
@@ -20,23 +20,24 @@ d2
 <tr />
 </table>
 """
+from __future__ import print_function
 
 class tag:
     """ represents an html tag - specifically used to create outputs for web pages
 
     Basic usage - create a "test" tag:
 
-    >>> print tag('test')
+    >>> print(tag('test'))
     <test />
 
     Attributes can be specified as a dictionary
 
-    >>> print tag('test', attributes={'prop': 'value'})
+    >>> print(tag('test', attributes={'prop': 'value'}))
     <test prop='value' />
 
     The real benefit - tags can be nested, allowing the python interpreter to track closing tags:
 
-    >>> print tag('test', tag('inner'))
+    >>> print(tag('test', tag('inner')))
     <test>
     <inner />
     </test>
@@ -66,7 +67,7 @@ def namedtag(t):
     """ create a named tag class - useful for standard html tags
 
     >>> mytag = namedtag('mytag')
-    >>> print mytag()
+    >>> print(mytag())
     <mytag />
 
     """
