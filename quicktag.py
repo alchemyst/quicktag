@@ -71,10 +71,8 @@ def namedtag(t):
     <mytag />
 
     """
-    class n(tag):
-        def __init__(self, contents=[], attributes={}):
-            tag.__init__(self, t, contents, attributes)
-    return n
+    from functools import partial
+    return partial(tag, t)
 
 h1, h2, p, table, td, th, tr, a = (namedtag(t) for t in ("h1", "h2", "p", "table", "td", "th", "tr", "a"))
 
