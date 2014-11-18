@@ -17,10 +17,17 @@ d1
 d2
 </td>
 </tr>
-<tr />
+<tr></tr>
 </table>
 """
 from __future__ import print_function
+
+# These are html 5 elements which can never contain content
+# see http://www.w3.org/TR/html-markup/syntax.html
+void_elements = ["area", "base", "br", "col", "command", "embed", "hr",
+                 "img", "input", "keygen", "link", "meta", "param", "source",
+                 "track", "wbr"]
+
 
 class tag:
     """ represents an html tag - specifically used to create outputs for web pages
@@ -28,18 +35,24 @@ class tag:
     Basic usage - create a "test" tag:
 
     >>> print(tag('test'))
-    <test />
+    <test></test>
+
+
+    Certain elements mustn't have a closed tag
+    
+    >>> print(tag('area'))
+    <area>
 
     Attributes can be specified as a dictionary
 
     >>> print(tag('test', attributes={'prop': 'value'}))
-    <test prop='value' />
+    <test prop='value'></test>
 
     The real benefit - tags can be nested, allowing the python interpreter to track closing tags:
 
     >>> print(tag('test', tag('inner')))
     <test>
-    <inner />
+    <inner></inner>
     </test>
     """
     def __init__(self, name, contents=[], attributes={}):
@@ -59,7 +72,11 @@ class tag:
                 contentstring = str(self.contents)
             return "<%s>\n%s\n</%s>" % (tagcontents, contentstring, self.name)
         else:
-            return "<" + tagcontents + " />"
+            starttag = "<" + tagcontents + ">"
+            if self.name in void_elements:
+                return starttag
+            endtag = "</" + self.name + ">"
+            return starttag + endtag
     def __repr__(self):
         return "tag(%s, contents=%s, attributes=%s)" % (self.name, self.contents, self.attributes)
 
@@ -68,7 +85,7 @@ def namedtag(t):
 
     >>> mytag = namedtag('mytag')
     >>> print(mytag())
-    <mytag />
+    <mytag></mytag>
 
     """
     from functools import partial
