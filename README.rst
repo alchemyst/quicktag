@@ -3,6 +3,10 @@ Quicktag
 .. image:: https://travis-ci.org/alchemyst/quicktag.png?branch=master   
    :target: https://travis-ci.org/alchemyst/quicktag
 
+.. image:: https://landscape.io/github/alchemyst/quicktag/master/landscape.svg
+   :target: https://landscape.io/github/alchemyst/quicktag/master
+   :alt: Code Health
+
 Supplies some utilities for creating html documents manually
 
 Simple usage for one tag::
