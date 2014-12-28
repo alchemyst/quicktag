@@ -55,10 +55,12 @@ class tag:
     <inner></inner>
     </test>
     """
-    def __init__(self, name, contents=[], attributes={}):
+
+    def __init__(self, name, contents=None, attributes=None):
         self.name = name
-        self.contents = contents
-        self.attributes = attributes
+        self.contents = [] if contents is None else contents
+        self.attributes = {} if attributes is None else attributes
+
     def __str__(self):
         tagcontents = self.name
         if len(self.attributes) > 0:
