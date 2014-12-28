@@ -28,5 +28,5 @@ A more elaborate example::
     d2
     </td>
     </tr>
-    <tr />
+    <tr></tr>
     </table>
