@@ -29,7 +29,7 @@ void_elements = ["area", "base", "br", "col", "command", "embed", "hr",
                  "track", "wbr"]
 
 
-class tag:
+class tag(object):
     """ represents an html tag - specifically used to create outputs for web pages
 
     Basic usage - create a "test" tag:
