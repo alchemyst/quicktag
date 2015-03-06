@@ -6,6 +6,6 @@ python:
 install:
   pip install coveralls
 script:
-  nosetests --with-doctest --with-coverage
+  nosetests --with-doctest --with-coverage --cover-package=quicktag
 after_success:
   coveralls
