@@ -118,7 +118,10 @@ def shadedtd(numberformat, maxvalue, value):
     return  td(numberformat % value, {'bgcolor': greystring(value/maxvalue)})
 
 
-if __name__ == "__main__":
+def _test():
     import doctest
     doctest.testmod()
 
+    
+if __name__ == "__main__":
+    _test()
