@@ -3,4 +3,9 @@ python:
   - "3.3"
   - "2.7"
   - "2.6"
-script: nosetests --with-doctest
+install:
+  pip install coveralls
+script: 
+  coverage run nosetests --with-doctest
+after_success:
+  coveralls
