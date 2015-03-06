@@ -6,6 +6,6 @@ python:
 install:
   pip install coveralls
 script:
-  run nosetests --with-doctest --with-coverage
+  nosetests --with-doctest --with-coverage
 after_success:
   coveralls
